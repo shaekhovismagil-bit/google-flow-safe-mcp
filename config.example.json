@@ -1,5 +1,6 @@
 {
   "cdpPort": 9222,
   "flowUrl": "https://labs.google/fx/tools/flow",
+  "autoLaunchChrome": true,
   "defaultTimeoutMs": 300000
 }

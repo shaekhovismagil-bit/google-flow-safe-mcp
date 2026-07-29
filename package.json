@@ -8,7 +8,7 @@
   "scripts": {
     "start": "node src/index.js",
     "test": "node --test",
-    "lint": "node --check src/index.js && node --check src/security.js && node --check src/flow-session.js && node --check src/download.js",
+    "lint": "node --check src/index.js && node --check src/security.js && node --check src/flow-session.js && node --check src/download.js && node --check src/browser-launcher.js",
     "audit": "npm audit"
   },
   "dependencies": {

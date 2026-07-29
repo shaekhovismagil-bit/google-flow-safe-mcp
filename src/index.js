@@ -5,6 +5,7 @@ import { Server } from '@modelcontextprotocol/sdk/server/index.js';
 import { StdioServerTransport } from '@modelcontextprotocol/sdk/server/stdio.js';
 import { CallToolRequestSchema, ListToolsRequestSchema } from '@modelcontextprotocol/sdk/types.js';
 import { FlowSession } from './flow-session.js';
+import { ensureDedicatedChrome } from './browser-launcher.js';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const defaultConfig = { cdpPort: 9222, flowUrl: 'https://labs.google/fx/tools/flow', defaultTimeoutMs: 300000 };
@@ -57,4 +58,8 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
   }
 });
 
+const startupConfig = await loadConfig();
+if (startupConfig.autoLaunchChrome !== false) {
+  await ensureDedicatedChrome({ cdpPort: startupConfig.cdpPort, flowUrl: startupConfig.flowUrl });
+}
 await server.connect(new StdioServerTransport());
