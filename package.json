@@ -1,0 +1,18 @@
+{
+  "name": "google-flow-safe-mcp",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Local, safety-first MCP server for an already-running Google Chrome Google Flow session",
+  "type": "module",
+  "engines": { "node": ">=20" },
+  "scripts": {
+    "start": "node src/index.js",
+    "test": "node --test",
+    "lint": "node --check src/index.js && node --check src/security.js && node --check src/flow-session.js && node --check src/download.js",
+    "audit": "npm audit"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.25.3",
+    "playwright-core": "^1.58.0"
+  }
+}
