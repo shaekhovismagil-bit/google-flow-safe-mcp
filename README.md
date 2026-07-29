@@ -1,3 +1,5 @@
+В разработке
+
 # Google Flow Safe MCP
 
 Безопасный MCP-сервер для Google Flow. Он открывает отдельный Chrome для Flow,
